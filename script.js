@@ -41,4 +41,9 @@ let allDishes =[
     price:12.99,
     dishesImage:"img/vegetaria.jpg"
 }
-]
+];
+let shppingBasket =[];
+
+function init(){
+    
+}
