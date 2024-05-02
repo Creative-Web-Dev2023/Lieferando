@@ -1,49 +1,100 @@
-let allDishes =[
+let menus =[
 {
     name:"Pizza Margherita",
     description:"mit Mozarella,Tomatensoße und Basilikum",
     plusImage:"icon/plus.png",
+    minusImage:"icon/minus.png",
     price:8.99,
-    dishesImage:"img/margherita.jpg"
+    amount:1,
+    dishesImage: 'img/pizzamargherita.jpg'
 },
 {
     name:"Pizza Prosciutto",
     description:"mit Schinken,Mozarella und Pepperoni",
     plusImage:"icon/plus.png",
+    minusImage:"icon/minus.png",
     price:9.99,
+    amount:1,
     dishesImage:"img/mozarella.jpg"
 },
 {
     name:"Pizza Salami",
     description:"mit Schinken,Mozarella und Pepperoni",
     plusImage:"icon/plus.png",
+    minusImage:"icon/minus.png",
     price:11.99,
+    amount:1,
     dishesImage:"img/salami.jpg"
 },
 {
     name:"Pizza Spinaci",
     description:"mit Spinat und Käse",
     plusImage:"icon/plus.png",
+    minusImage:"icon/minus.png",
     price:10.99,
+    amount:1,
     dishesImage:"img/spinaci.jpg"
 },
 {
     name:"Pizza Mexicana",
     description:"mit Mais,Paprika und Mozarella",
     plusImage:"icon/plus.png",
+    minusImage:"icon/minus.png",
     price:11.99,
-    dishesImage:"img/margherita.jpg"
+    amount:1,
+    dishesImage:"img/pizzamargherita.jpg"
 },
 {
     name:"Pizza Vegetaria",
     description:"mit allerlei Gemüse",
     plusImage:"icon/plus.png",
+    minusImage:"icon/minus.png",
     price:12.99,
+    amount:1,
     dishesImage:"img/vegetaria.jpg"
 }
 ];
-let shppingBasket =[];
+
 
 function init(){
-    
+  render();
+}
+
+function render(){
+    let content = document.getElementById('content');
+    content.innerHTML='';
+
+    for (let i = 0; i < menus.length; i++) {
+        const menu = menus[i];
+        content.innerHTML = `
+        <div class="menu-item">
+             <img src="${menu.dishesImage}" alt="${menu.name}" />
+             <h3>${menu.name}</h3>
+             <p>${menu.description}</p>
+             <p>Price: ${menu.price} €</p>
+             <img src="${menu.plusImage}" alt="Add to cart" />
+             <img src="${menu.minusImage}"/>
+             <button onclick="addToCart(${i})">Add to cart</button>
+        </div>
+        `   
+    }
+}
+function getMenuIndex(index) { //Überprüft ob in Warenkorb schon was drin ist
+    return shoppingBasket.indexOf(index);
+  }
+  
+function addFoodToBasket(i){ // Food hinzufügen
+    let menu =menus[i];
+    let menuName = menu.name;
+    let price = menu.price;
+    let index = getMenuIndex(menuName);
+
+    if (index === -1){ //wenn das Gericht  bereits im Warenkorb vorhanden ist (Index ist nicht -1),
+        shoppingBasket.push(menuName);
+        priceBasket.push(price);
+        amountBasket.push(1);
+    } else{
+        amountBasket[index]++; // Menge des vorhandenen Gerichts im Warenkorb erhöhen
+    }
+    render();
 }
