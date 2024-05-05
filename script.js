@@ -140,12 +140,16 @@ function removeFoodFromBasket(index) {
 
 function selectShipment(){
     let shipment = document.getElementById('basket-order-take');
+    const takeAway = document.getElementById('basket-take-order');
     shipment.style.backgroundColor='grey';
+    takeAway.style.backgroundColor='transparent';
     console.log("Lieferung ausgewählt");
 }
 
 function selectTakeAway(){
     let takeAway = document.getElementById('basket-take-order');
-    takeAway.style.backgroundColor='white'; 
+    const shipment = document.getElementById('basket-order-take');
+    takeAway.style.backgroundColor='grey'; 
+    shipment.style.backgroundColor='transparent';
     console.log("Abholung ausgewählt");
 }
