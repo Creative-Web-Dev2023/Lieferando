@@ -124,6 +124,14 @@ function addFoodToBasket(i) {
 }
 
 function removeFoodFromBasket(index) {
+    const currentQuantity = amountBasket[index]
+
+    if (currentQuantity > 1) {
+        amountBasket[index]--;
+        renderBasket();
+        return;
+    }
+
     shoppingBasket.splice(index, 1);
     priceBasket.splice(index, 1);
     amountBasket.splice(index, 1);
