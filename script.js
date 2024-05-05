@@ -54,66 +54,90 @@ let menus =[
         dishesImage:"./img/vegetaria.jpg"
     }
     ];
-let shoppingBasket = []
+
+let shoppingBasket = [];
+let priceBasket = []; 
+let amountBasket = [];
+
 
 function init(){
   render();
+
 }
 
 function render(){
     let content = document.getElementById('content');
-    content.innerHTML=''; //Inhalt leeren
-
+    content.innerHTML =''; //Inhalt leeren
     for (let i = 0; i < menus.length; i++) { // durch Array iterieren
         const menu = menus[i];
-        content.innerHTML = `
-        <div class="dishes-div">
-        <div class="dishes-name-div">
-            <h4 class="menu-name">${menu.name}</h4>
-            <img class="plusImg" src="/icon/plus.png" onclick="addFoodToBasket(${i})" alt="Plus">
-        </div>
-        <div class="dishes-description-img-div">
-            <div>
-                <p class="dishes-description">${menu.description}</p>
-                <p class="dishes-price"><b>${menu.price.toFixed(2)} €</b></p>
-            </div>
-            <div>
-                <img class="dishes-img" src="${menu.dishesImage}" alt="${menu.name}">
+        content.innerHTML += `
+            <div class="dishes-div">
+               <div class="dishes-name-div">
+                  <h4 class="menu-name">${menu.name}</h4>
+                   <img class="plusImg" src="/icon/plus.png" onclick="addFoodToBasket(${i})" alt="Plus">
+                </div>
+            <div class="dishes-description-img-div">
+                <div>
+                    <p class="dishes-description">${menu.description}</p>
+                    <p class="dishes-price"><b>${menu.price.toFixed(2)} €</b></p>
+               </div>
+             <div>
+                 <img class="dishes-img" src="${menu.dishesImage}" alt="${menu.name}">
             </div>
         </div>
     </div>`;
 }
 }
-function getMenuIndex(index) { 
-    
-    return shoppingBasket.indexOf(index); //Überprüft ob in Warenkorb schon was drin ist
+
 
 function renderBasket() {
     let basketContent = document.getElementById('basket-content');
     basketContent.innerHTML = "";
-    
     for (let i = 0; i < shoppingBasket.length; i++) {
-        basketContent.innerHTML += `
+        basketContent.innerHTML += /*html*/`
             <div class="basket-item">
                 <span>${shoppingBasket[i]}</span>
-                <span>${amountBasket[i]}</span>
+                <span>${priceBasket[i]}€</span>
+                <span>${amountBasket[i]}x</span>
+            </div>
+            <div class="shoppingbasket-div">
+            <img class="minusImg" src="./icon/minus.png" onclick="removeFoodFromBasket(${i})" width:15px;alt="Minus">
+           <img class="plusImg" src="./icon/plus.png" onclick="addFoodToBasket(${i})" alt="Plus">
             </div>
         `;
     }
 }
-function addFoodToBasket(i){ // Food hinzufügen
-    let menu =menus[i];
+
+function addFoodToBasket(i) {
+    let menu = menus[i];
     let menuName = menu.name;
     let price = menu.price;
-    let index = getMenuIndex(menuName);
-
-    if (index === -1){ //wenn das Gericht  bereits im Warenkorb vorhanden ist (Index ist nicht -1),
+    let index = shoppingBasket.indexOf(menuName);
+    if (index === -1) {
         shoppingBasket.push(menuName);
         priceBasket.push(price);
         amountBasket.push(1);
-    } else{
-        amountBasket[index]++; // Menge des vorhandenen Gerichts im Warenkorb erhöhen
+    } else {
+        amountBasket[index]++;
     }
     renderBasket();
 }
+
+function removeFoodFromBasket(index) {
+    shoppingBasket.splice(index, 1);
+    priceBasket.splice(index, 1);
+    amountBasket.splice(index, 1);
+    renderBasket();
+}
+
+function selectShipment(){
+    let shipment = document.getElementById('basket-order-take');
+    shipment.style.backgroundColor='grey';
+    console.log("Lieferung ausgewählt");
+}
+
+function selectTakeAway(){
+    let takeAway = document.getElementById('basket-take-order');
+    takeAway.style.backgroundColor='white'; 
+    console.log("Abholung ausgewählt");
 }

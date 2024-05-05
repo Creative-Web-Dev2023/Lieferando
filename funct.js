@@ -33,14 +33,7 @@ function addFoodToBasket(i){
         amountBasket[index]++; // Menge des vorhandenen Gerichts im Warenkorb erhöhen
     }
     
- function renderBasket() {
-        let add = document.getElementById("new-add");
-        add.innerHTML = "";
-        for (let i = 0; i < shoppingBasket.length; i++) {
-            add.innerHTML += renderBasketTemplate(i);
-            
-        } 
-  }
+ 
 function removeBasketAfterOrder() {
   for (let i = 0; i < shoppingBasket.length; i++) {
     shoppingBasket.splice(i, 6);

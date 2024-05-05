@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Bella Pizzarando</title>
-    <script src="script.js"></script>
+  
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="./img/cooking-chef.png">
 
@@ -46,117 +46,22 @@
                 <p class="value-text">10% Rabatt auf alles für Selbstabholer</p>
             </div>
                 <h3 class="menuline">Belibte Gerichte</h3>
-            
-                <div class="dishes-div">
-                    <div class="dishes-name-div">
-                        <h4 class="menu-name">Pizza Margherita</h4>
-                        <img class="plusImg" src="/icon/plus.png" onclick="addFoodToBasket(0)" alt="Plus"></div>
-                        <div class="dishes-description-img-div">
-                            <div>
-                                <p class="dishes-description">mit Mozarella,Tomatensoße und Basilikum</p>
-                                <p class="dishes-price">
-                                    <b>8,99  €</b>
-                                </p>
-                            </div>
-                            <div>
-                                <img class="dishes-img" src="img/pizzamargherita.jpg" alt="Pizza Margherita">
-                            </div>
-                        </div>
-                </div> 
-                <div class="dishes-div">
-                    <div class="dishes-name-div">
-                        <h4 class="menu-name">Pizza Prosciutto</h4>
-                        <img class="plusImg" src="/icon/plus.png" onclick="addFoodToBasket(1)" alt="Plus"></div>
-                        <div class="dishes-description-img-div">
-                            <div>
-                                <p class="dishes-description">mit Schinken,Mozarella und  Pepperoni</p>
-                                <p class="dishes-price">
-                                    <b>9,99  €</b>
-                                </p>
-                            </div>
-                            <div>
-                                <img class="dishes-img" src="./img/mozarella.jpg" alt="Pizza Mozarella">
-                            </div>
-                        </div>
-                </div> 
-                <div class="dishes-div">
-                    <div class="dishes-name-div">
-                        <h4 class="menu-name">Pizza Salami</h4>
-                        <img class="plusImg" src="/icon/plus.png" onclick="addToBasket(2)" alt="Plus"></div>
-                        <div class="dishes-description-img-div">
-                            <div>
-                                <p class="dishes-description">mit Salami,Käse und Pepperoni</p>
-                                <p class="dishes-price">
-                                    <b>11,99  €</b>
-                                </p>
-                            </div>
-                            <div>
-                                <img class="dishes-img" src="./img/salami.jpg" alt="Pizza Salami">
-                            </div>
-                        </div>
-                </div>
-                <div class="dishes-div">
-                    <div class="dishes-name-div">
-                        <h4 class="menu-name">Pizza Spinaci</h4>
-                        <img class="plusImg" src="/icon/plus.png" onclick="addToBasket(3)" alt="Plus"></div>
-                        <div class="dishes-description-img-div">
-                            <div>
-                                <p class="dishes-description">mit Spinat und Käse</p>
-                                <p class="dishes-price">
-                                    <b>10,99  €</b>
-                                </p>
-                            </div>
-                            <div>
-                                <img class="dishes-img" src="./img/spinaci.jpg" alt="Pizza mit Spinat">
-                            </div>
-                        </div>
-                </div>
-                <div class="dishes-div">
-                    <div class="dishes-name-div">
-                        <h4 class="menu-name">Pizza Mexicana</h4>
-                        <img class="plusImg" src="/icon/plus.png" onclick="addToBasket(4)" alt="Plus"></div>
-                        <div class="dishes-description-img-div">
-                            <div>
-                                <p class="dishes-description">mit Mais,Paprika und Mozarella</p>
-                                <p class="dishes-price">
-                                    <b>11,99  €</b>
-                                </p>
-                            </div>
-                            <div>
-                                <img class="dishes-img" src="./img/mexicana.jpg" alt="Pizza Mexicana">
-                            </div>
-                        </div>
-                </div>
-                <div class="dishes-div">
-                    <div class="dishes-name-div">
-                        <h4 class="menu-name">Pizza Vegetariana</h4>
-                        <img class="plusImg" src="/icon/plus.png" onclick="addToBasket(5)" alt="Plus"></div>
-                        <div class="dishes-description-img-div">
-                            <div>
-                                <p class="dishes-description">mit allerlei Gemüse</p>
-                                <p class="dishes-price">
-                                    <b>12,99  €</b>
-                                </p>
-                            </div>
-                            <div>
-                                <img class="dishes-img" src="./img/vegetaria.jpg" alt="Pizza Mexicana">
-                            </div>
-                        </div>
-                </div>
+                <div id="content">
         </section>
+        
         <div class="basket">
             <span class="basket-headline">
                 <h2>Warenkorb</h2>
             </span>
             <div class="basket-order">
-                <div class="basket-order-take-left" id="basket-order-take" onclick="">
+                <div class="basket-order-take-left" id="basket-order-take" onclick="selectShipment()">
                     <img src="./icon/walking.png" alt="men" width="20px" height="20px">
                     <div class="basket-order-take-left-delivery">
                         <span><b>Lieferung</b></span>
                         <span>40-60 Min</span>
                     </div>
                 </div>
-             <div class="basket-order-take-right" id="basket-take-order" onclick="">
+             <div class="basket-order-take-right" id="basket-take-order" onclick="selectTakeAway()">
                     <img src="./icon/shopping-bag.png" alt="bags" width=20px" height=20px">
                     <div class="basket-order-take-right-collect">
                         <span><b>Abholung</b></span>
@@ -164,7 +69,7 @@
                     </div>
              </div>
         </div>
-        <div id="content"></div>
+        <div id="basket-content"></div>
         <div id="empty-basket-text">
             <img src="./icon/shopping-bag.png" alt="bag">
             <h2>Dein Warenkorb ist leer</h2>
@@ -180,5 +85,5 @@
         <a class="stars-created-by" href="https://icons8.com/">Credits</a>
     </footer>
 </body>
-
+<script src="script.js"></script>
 </html>

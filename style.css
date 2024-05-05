@@ -137,7 +137,16 @@ h3{
     justify-content: space-between;
     align-items: center;
 }
-
+.minusImg{
+    padding:4px;
+    border-radius: 100%;
+    background-color:#e2e5f7;
+    height:20px;
+}
+.minusImg:hover{
+    transform:scale(0.9);
+    background-color: #848AAE;
+}
 .plusImg{
     padding:4px;
     border-radius: 100%;
@@ -180,26 +189,42 @@ b {
      display: flex;
      flex-direction: column;
      align-items: center;
-     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+     box-shadow: 1px 1px 10px rgba(177, 90, 90, 0.2);
      overflow-y: auto;
     }
 .basket-headline{
     text-align: center;
     margin-top: 20px;
 }
+#basket-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width:70%;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.1);
+
+}
 .basket-order{
     display: flex;
     justify-content: space-between;
     border-radius: 15px;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(231, 46, 46, 0.1);
     margin-top: 10px;
 }
 .basket-order-take-left{   
   display: flex;
   align-items: center;
-  padding-left: 10px;
+  padding-left: 4px;
   width: 50%;
   cursor: pointer;
+  color:#c5b69b;
+  border-radius: 15px;
+  background-color: rgba(250, 251, 251);
+}
+.basket-order-take-left:hover{
+    color:#485edb;
 }
 .basket-order-take-right{
     display: flex;
@@ -210,6 +235,10 @@ b {
     width: 50%;
     padding: 10px;
     cursor: pointer;
+    color:#ffa500
+}
+.basket-order-take-right:hover{
+    color:#485edb;
 }
 #empty-basket-text{
     margin-top: 70px;
