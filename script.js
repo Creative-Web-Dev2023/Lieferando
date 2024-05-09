@@ -62,6 +62,8 @@ let amountBasket = [];
 
 function init(){
   render();
+  changeLike();
+  addClassList();
 
 }
 
@@ -124,18 +126,17 @@ function addFoodToBasket(i) {
 }
 
 function removeFoodFromBasket(index) {
-    const currentQuantity = amountBasket[index]
-
-    if (currentQuantity > 1) {
-        amountBasket[index]--;
+    const currentQuantity = amountBasket[index]  //definiert die aktuelle Menge
+    if (currentQuantity > 1) { //falls mehr als 1
+        amountBasket[index]--; //Menge reduzieren
         renderBasket();
         return;
     }
 
-    shoppingBasket.splice(index, 1);
-    priceBasket.splice(index, 1);
-    amountBasket.splice(index, 1);
-    renderBasket();
+    shoppingBasket.splice(index, 1); //ein Element aus dem Array entfernen
+    priceBasket.splice(index, 1); //Preis entfernen
+    amountBasket.splice(index, 1); // Menge entfernen
+    renderBasket(); //warenkorb aktualisieren
 }
 
 function selectShipment(){
@@ -143,7 +144,6 @@ function selectShipment(){
     const takeAway = document.getElementById('basket-take-order');
     shipment.style.backgroundColor='grey';
     takeAway.style.backgroundColor='transparent';
-    console.log("Lieferung ausgewählt");
 }
 
 function selectTakeAway(){
@@ -151,5 +151,91 @@ function selectTakeAway(){
     const shipment = document.getElementById('basket-order-take');
     takeAway.style.backgroundColor='grey'; 
     shipment.style.backgroundColor='transparent';
-    console.log("Abholung ausgewählt");
+}
+
+
+function changeLike(){
+    let likeBtn = document.getElementById('likebtn'); //Elem. aufrufen
+    if (likeBtn.src.includes('love-circled.png')) { //wenn das Bild "love-circled.png" enthält dann true
+        likeBtn.src = "./icon/heart-suit.png"; //
+    } else {
+        likeBtn.src = "./icon/love-circled.png";
+    }
+}
+
+function saveArray(){
+    let menusAsText =JSON.stringify(menus);
+    localStorage.setItem('menus', menusAsText);
+}
+
+
+function loadArray() {
+    let menusAsText = localStorage.getItem('menus');
+    if (menusAsText) {
+        menus = JSON.parse(menusAsText);
+    }
+  }
+
+  function generatePayHtml(){
+    return /*html*/`
+    <div id="separator"></div>
+    <div class="costs">
+        <h3>Zwischensumme</h3>
+        <h3>${calculateCost()} €</h3>
+        <h3>Lieferkosten</h3>
+        <h3>3 €</h3>
+    </div>
+    <div class="costs">
+        <h3>Gesamt</h3>
+        <h3>${calculateCost()} €</h3> 
+    </div>
+    <button class="button" onclick="pay(), openDialog()">Bezahlen</button>
+    `;
+  }
+
+  function openDialog(){
+    let dialog = document.getElementById('dialog');
+  }
+
+function calculateCost(){
+    let sum = 0; //Summe auf 0 setzen
+    for (let i = 0; i < priceBasket.length; i++) { // durch das Array iterieren
+        sum += priceBasket[i] * amountBasket[i]; // Preis * Menge und zur Summe addiert
+    }
+    return sum.toFixed(2); // auf 2 Nachkommastellen runden
+}
+
+
+  function generateDialogHtml(){
+    return /*html*/`
+    <h3 class = "basket-title">Vielen Dank für Ihre Bestellung</h3>
+    <button class ="button" onclick="pay(),addClassList(),removeClassList()">Schließen</button>
+    `;	
+}
+
+
+function pay (){
+    if(shoppingBasket.length === 0){ //  wenn der Warenkorb leer ist
+        alert("Vielen Dank für Ihre Bestellung!");
+        shoppingBasket.splice(0, shoppingBasket.length); // Array leeren
+        priceBasket.splice(0, priceBasket.length); 
+        amountBasket.splice(0, amountBasket.length);
+    } else {
+        alert("Bitte wählen Sie Ihre Gerichte aus!");
+    }
+}
+
+function addClassList(){
+    document.getElementById('basket-title').classList.add('display-none');
+    document.getElementById('dialog').classList.add('display-none');
+    document.getElementById('total-section').classList.add('display-none');
+    document.getElementById('empty-basket-text').classList.add('display-none');
+}
+
+function removeClassList(){
+    document.getElementById('basket-title').classList.remove('display-none');
+    document.getElementById('dialog').classList.remove('display-none');
+    document.getElementById('total-section').classList.remove('display-none');
+    document.getElementById('empty-basket-text').classList.remove('display-none');
+    
 }

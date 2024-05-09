@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Bella Pizzarando</title>
-  
+
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="./img/cooking-chef.png">
 
 </head>
 
-<body onload = "init()">
+<body onload="init()">
     <header>
         <nav class="food-man">
             <h1 class="pizzarando">Pizzarando</h1>
@@ -31,7 +31,7 @@
                 <h1>Bella Pizza</h1>
                 <div class="rest-icons">
                     <img src="icon/info.png">
-                    <img src="icon/love-circled.png">
+                    <img id="likebtn" onclick="changeLike()" src="icon/love-circled.png">
                 </div>
             </div>
             <div class="rating">
@@ -45,10 +45,10 @@
                 <img class="mini-icons" src="icon/walking.png" alt="Men walking">
                 <p class="value-text">10% Rabatt auf alles für Selbstabholer</p>
             </div>
-                <h3 class="menuline">Belibte Gerichte</h3>
-                <div id="content">
+            <h3 class="menuline">Belibte Gerichte</h3>
+            <div id="content">
         </section>
-        
+
         <div class="basket">
             <span class="basket-headline">
                 <h2>Warenkorb</h2>
@@ -61,22 +61,38 @@
                         <span>40-60 Min</span>
                     </div>
                 </div>
-             <div class="basket-order-take-right" id="basket-take-order" onclick="selectTakeAway()">
+                <div class="basket-order-take-right" id="basket-take-order" onclick="selectTakeAway()">
                     <img src="./icon/shopping-bag.png" alt="bags" width=20px" height=20px">
                     <div class="basket-order-take-right-collect">
                         <span><b>Abholung</b></span>
                         <span>15 Min</span>
                     </div>
-             </div>
+                </div>
+            </div>
+            <div id="basket-content"></div>
+            <div id="empty-basket-text display-none">
+                <img src="./icon/shopping-bag.png" alt="bag">
+                <h2>Dein Warenkorb ist leer</h2>
+                <p>Füge bitte Gerichte aus der <br> Speisekarte hinzu und bestelle dein Essen.</p>
+            </div>
         </div>
-        <div id="basket-content"></div>
-        <div id="empty-basket-text">
-            <img src="./icon/shopping-bag.png" alt="bag">
-            <h2>Dein Warenkorb ist leer</h2>
-            <p>Füge bitte Gerichte aus der <br> Speisekarte hinzu und bestelle dein Essen.</p>
+        <div class="total-section" id="total-section">
+            <p>Gesamtpreis</p>
+            <p class="currentPrice" id="total"></p>
+            <p class="Euro">€</p>
+        </div>
+        <div class="pay-div" id="pay-div" onclick="pay()">
+            <p>Bezahlen (</p>
+            <div class="pay" id="pay"></div>
+            <p>€ )</p>
         </div>
         </div>
-        
+        <div class="dialog" class="dialog-bg display-none">
+            <div class="dialog">
+                <div class="thanks" id="thanks">
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
         <a href="#">Impressum</a>
@@ -86,4 +102,5 @@
     </footer>
 </body>
 <script src="script.js"></script>
+
 </html>

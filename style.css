@@ -126,6 +126,58 @@ h3{
     margin-right: 18px;
     font-size: 24px;
 }
+
+
+#likebtn{
+    cursor: pointer;
+}
+.display-none{
+    display:none;
+}
+.basket-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;  
+}
+.dialog-bg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.3);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 999;
+}
+.total-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+    margin-right: 16px;
+    width:100%;
+}
+.currentPrice{
+    display: flex;
+    margin-right:8px;
+    margin-left:20%;
+}
+.pay-div{
+    color: white;
+    font-size: 24px;
+    padding: 8px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    margin-top: 16px;
+    background-color: rgb(37, 203, 39);
+    cursor: pointer; 
+}
 .dishes-div{
     border-radius: 16px;
     border:solid rgb(236, 230, 238);
@@ -212,6 +264,7 @@ b {
     border-radius: 15px;
     background-color: rgba(231, 46, 46, 0.1);
     margin-top: 10px;
+    
 }
 .basket-order-take-left{   
   display: flex;
@@ -234,7 +287,8 @@ b {
     width: 50%;
     padding: 10px;
     cursor: pointer;
-    color:#ffa500
+    color:#ffa500;
+    border-radius: 15px;
 }
 .basket-order-take-right:hover{
     color:#485edb;
