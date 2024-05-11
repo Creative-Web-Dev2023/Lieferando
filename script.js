@@ -93,7 +93,16 @@ function render(){
 
 function renderBasket() {
     let basketContent = document.getElementById('basket-content');
+    let basketTotal = document.getElementById('total-price');
+
+    let total = calculateCost()
+
     basketContent.innerHTML = "";
+
+    basketTotal.innerHTML = /*html*/`
+        Total: ${total} €
+    `;
+
     for (let i = 0; i < shoppingBasket.length; i++) {
         basketContent.innerHTML += /*html*/`
             <div class="basket-item">
@@ -196,14 +205,22 @@ function loadArray() {
 
   function generateDialogHtml(){
     return /*html*/`
+    <div class="dialog-content" style="background-color: white; padding: 1.3rem;">
+           
     <h3 class = "basket-title">Vielen Dank für Ihre Bestellung</h3>
+
     <button class ="button" onclick="pay(),addClassList(),removeClassList()">Schließen</button>
+    </div>
     `;	
  }
 
 
   function openDialog(){
-    let dialog = document.getElementById('dialog');
+    let dialog = document.getElementById('dialog-container');
+
+    dialog.innerHTML = generateDialogHtml();
+
+    dialog.style.display = "flex"
   }
 
 function calculateCost(){
@@ -228,7 +245,7 @@ function payment (){
 
 function addClassList(){
     document.getElementById('basket-title').classList.add('display-none');
-    document.getElementById('dialog').classList.add('display-none');
+    document.getElementById('dialog-container').classList.add('display-none');
     // document.getElementById('total-section').classList.add('display-none');
     // document.getElementById('empty-basket-text').classList.add('display-none');
     // document.getElementById('pay-div').classList.add('display-none');
@@ -236,7 +253,7 @@ function addClassList(){
 
 function removeClassList(){
     document.getElementById('basket-title').classList.remove('display-none');
-    document.getElementById('dialog').classList.remove('display-none');
+    document.getElementById('dialog-container').classList.remove('display-none');
     // document.getElementById('total-section').classList.remove('display-none');
     // document.getElementById('empty-basket-text').classList.remove('display-none');
     // document.getElementById('pay-div').classList.remove('display-none');

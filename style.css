@@ -44,6 +44,17 @@ section{
     width:70%;
 }
 
+#dialog-container {
+    background-color: #00000066;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
 .home-img{
     border:1px grey solid;
   
@@ -261,6 +272,7 @@ b {
      align-items: center;
      box-shadow: 1px 1px 10px rgba(177, 90, 90, 0.2);
      overflow-y: auto;
+     padding-bottom: 5rem;
     }
 .basket-headline{
     text-align: center;
@@ -311,6 +323,11 @@ b {
 .basket-order-take-right:hover{
     color:#485edb;
 }
+
+#ticket-content {
+    flex: 1;
+}
+
 #empty-basket-text{
     margin-top: 70px;
     margin-bottom: 20px;
