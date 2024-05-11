@@ -150,8 +150,26 @@ h3{
     right: 0;
     bottom: 0;
     top: 0;
-    z-index: 999;
+   
 }
+/* .dialog{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:24px;
+    max-width: 300px;
+    height:30vh;
+    background-color: #e2e5f7;
+    border: lightgrey 1px solid;
+    border-radius: 10px;
+}
+.thanks{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+ }
+
 .total-section{
     display: flex;
     justify-content: center;
@@ -177,7 +195,7 @@ h3{
     margin-top: 16px;
     background-color: rgb(37, 203, 39);
     cursor: pointer; 
-}
+}*/
 .dishes-div{
     border-radius: 16px;
     border:solid rgb(236, 230, 238);
@@ -297,6 +315,13 @@ b {
     margin-top: 70px;
     margin-bottom: 20px;
     text-align: center;
+}
+.seperator{
+    background-color: #ffa500;
+    width:80%;
+    height: 1px;
+    margin-top:16px;
+    margin-bottom: 16px;
 }
 /*Footer CSS*/
 footer{

@@ -63,8 +63,7 @@ let amountBasket = [];
 function init(){
   render();
   changeLike();
-  addClassList();
-
+  generateDialogHtml();
 }
 
 function render(){
@@ -176,6 +175,7 @@ function loadArray() {
     }
   }
 
+
   function generatePayHtml(){
     return /*html*/`
     <div id="separator"></div>
@@ -193,6 +193,15 @@ function loadArray() {
     `;
   }
 
+
+  function generateDialogHtml(){
+    return /*html*/`
+    <h3 class = "basket-title">Vielen Dank für Ihre Bestellung</h3>
+    <button class ="button" onclick="pay(),addClassList(),removeClassList()">Schließen</button>
+    `;	
+ }
+
+
   function openDialog(){
     let dialog = document.getElementById('dialog');
   }
@@ -206,15 +215,7 @@ function calculateCost(){
 }
 
 
-  function generateDialogHtml(){
-    return /*html*/`
-    <h3 class = "basket-title">Vielen Dank für Ihre Bestellung</h3>
-    <button class ="button" onclick="pay(),addClassList(),removeClassList()">Schließen</button>
-    `;	
-}
-
-
-function pay (){
+function payment (){
     if(shoppingBasket.length === 0){ //  wenn der Warenkorb leer ist
         alert("Vielen Dank für Ihre Bestellung!");
         shoppingBasket.splice(0, shoppingBasket.length); // Array leeren
@@ -228,14 +229,16 @@ function pay (){
 function addClassList(){
     document.getElementById('basket-title').classList.add('display-none');
     document.getElementById('dialog').classList.add('display-none');
-    document.getElementById('total-section').classList.add('display-none');
-    document.getElementById('empty-basket-text').classList.add('display-none');
+    // document.getElementById('total-section').classList.add('display-none');
+    // document.getElementById('empty-basket-text').classList.add('display-none');
+    // document.getElementById('pay-div').classList.add('display-none');
 }
 
 function removeClassList(){
     document.getElementById('basket-title').classList.remove('display-none');
     document.getElementById('dialog').classList.remove('display-none');
-    document.getElementById('total-section').classList.remove('display-none');
-    document.getElementById('empty-basket-text').classList.remove('display-none');
+    // document.getElementById('total-section').classList.remove('display-none');
+    // document.getElementById('empty-basket-text').classList.remove('display-none');
+    // document.getElementById('pay-div').classList.remove('display-none');
     
 }
