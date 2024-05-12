@@ -321,6 +321,20 @@ b {
 .button:hover{
     background-color: #b7b9c5;
 }
+.mobile-payment-container{
+    background-color: rgb(221, 132, 69);
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 10%;
+}
+.mobile-payment{
+    display: flex;
+}
+.delete-img{
+    height: 24px;
+    margin-left: 24px;
+}
 /*Footer CSS*/
 footer{
     display: grid;

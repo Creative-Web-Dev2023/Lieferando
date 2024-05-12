@@ -124,7 +124,6 @@ function addFoodToBasket(i) {
         priceBasket.push(price);
         amountBasket.push(1);
         document.getElementById('empty-basket-text').style.display = 'none';
-
         amountBasket[index]++;
     }
     renderBasket();
@@ -231,6 +230,7 @@ function payment (){
     document.getElementById('basket-title').classList.add('display-none');
     document.getElementById('dialog-container').classList.add('display-none');
     document.getElementById('empty-basket-text').classList.add('display-none');
+    document.getElementById('mobile-payment-container').classList.add('display-none');
    
 }
 
@@ -238,5 +238,5 @@ function removeClassList(){
     document.getElementById('basket-title').classList.remove('display-none');
     document.getElementById('dialog-container').classList.remove('display-none')
     document.getElementById('empty-basket-text').classList.remove('display-none');
- 
+    document.getElementById('mobile-payment-container').classList.remove('display-none');
 }
