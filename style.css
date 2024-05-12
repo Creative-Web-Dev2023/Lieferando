@@ -50,14 +50,12 @@ section{
     height: 100vh;
     position: fixed;
     top: 0;
-    display: none;
     justify-content: center;
     align-items: center;
 }
 
 .home-img{
     border:1px grey solid;
-  
     height: 320px;
     position: relative;
     background-image: url(img/homeimg.jpg);
@@ -163,50 +161,7 @@ h3{
     top: 0;
    
 }
-/* .dialog{ 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding:24px;
-    max-width: 300px;
-    height:30vh;
-    background-color: #e2e5f7;
-    border: lightgrey 1px solid;
-    border-radius: 10px;
-}
-.thanks{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
- }
 
-.total-section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 16px;
-    margin-right: 16px;
-    width:100%;
-}
-.currentPrice{
-    display: flex;
-    margin-right:8px;
-    margin-left:20%;
-}
-.pay-div{
-    color: white;
-    font-size: 24px;
-    padding: 8px;
-    border-radius: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 32px;
-    margin-top: 16px;
-    background-color: rgb(37, 203, 39);
-    cursor: pointer; 
-}*/
 .dishes-div{
     border-radius: 16px;
     border:solid rgb(236, 230, 238);
@@ -331,7 +286,6 @@ b {
     color:#485edb;
 }
 
-
 #empty-basket-text{
     margin-top: 70px;
     margin-bottom: 20px;
@@ -343,6 +297,29 @@ b {
     height: 1px;
     margin-top:16px;
     margin-bottom: 16px;
+}
+.dialog-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 10vh;
+    max-width: 300px;
+    background-color: white;
+    border: 1px solid rgb(82, 77, 77);
+    border-radius: 5px;
+}
+.button{
+    width: 150px;
+    height: 35px;
+    font-size: 18px;
+    background-color: orange;
+    cursor: pointer;
+    margin-bottom: 16px;
+    border-radius: 5px;
+    }
+.button:hover{
+    background-color: #b7b9c5;
 }
 /*Footer CSS*/
 footer{

@@ -101,7 +101,7 @@ function renderBasket() {
     for (let i = 0; i < shoppingBasket.length; i++) {
         basketContent.innerHTML += /*html*/`
             <div class="basket-item">
-                
+
                 <span>${shoppingBasket[i]}</span>
                 <span>${priceBasket[i]}€</span>
                 <span>${amountBasket[i]}x</span>
@@ -180,27 +180,11 @@ function loadArray() {
   }
 
 
-  function generatePayHtml(){
-    return /*html*/`
-    <div id="separator"></div>
-    <div class="costs">
-        <h3>Zwischensumme</h3>
-        <h3>${calculateCost()} €</h3>
-        <h3>Lieferkosten</h3>
-        <h3>3 €</h3>
-    </div>
-    <div class="costs">
-        <h3>Gesamt</h3>
-        <h3>${calculateCost()} €</h3> 
-    </div>
-    <button class="button" onclick="pay(), openDialog()">Bezahlen</button>
-    `;
-  }
 
 
   function generateDialogHtml(){
     return /*html*/`
-    <div class="dialog-content" style="background-color: white; padding: 1.3rem;"> 
+    <div class="dialog-content"> 
     <h3 class = "basket-title">Vielen Dank für Ihre Bestellung</h3>
     <button class ="button" onclick="payment(),addClassList(),removeClassList()">Schließen</button>
     </div>
@@ -211,8 +195,13 @@ function loadArray() {
   function openDialog(){
     let dialog = document.getElementById('dialog-container');
     dialog.innerHTML = generateDialogHtml();
-    dialog.style.display = "flex"
+    dialog.style.display = "flex";
   }
+
+  function closeDialog(){
+    let dialog = document.getElementById('dialog-container');
+    dialog.style.display = "none"; 
+}
 
 function calculateCost(){
     let sum = 0; //Summe auf 0 setzen
@@ -229,23 +218,31 @@ function payment (){
         priceBasket.splice(0, priceBasket.length); 
         amountBasket.splice(0, amountBasket.length);
     } else {
-        alert("Bitte wählen Sie Ihre Gerichte aus!");
+        return /*html*/`
+    <div class="dialog-content"> 
+    <h3 id="basket-title" class = "basket-title">Vielen Dank für Ihre Bestellung</h3>
+    <button class ="button" onclick="payment(), closeDialog(),addClassList(),removeClassList()">Schließen</button>
+    </div>
+    `;	
+ };
     }
-}
+
+    function closeDialog(){
+        let dialog = document.getElementById('dialog-container');
+        
+    }
 
 function addClassList(){
     document.getElementById('basket-title').classList.add('display-none');
     document.getElementById('dialog-container').classList.add('display-none');
-    // document.getElementById('total-section').classList.add('display-none');
-    // document.getElementById('empty-basket-text').classList.add('display-none');
-    // document.getElementById('pay-div').classList.add('display-none');
+    document.getElementById('empty-basket-text').classList.add('display-none');
+   
 }
 
 function removeClassList(){
     document.getElementById('basket-title').classList.remove('display-none');
-    document.getElementById('dialog-container').classList.remove('display-none');
-    // document.getElementById('total-section').classList.remove('display-none');
-    // document.getElementById('empty-basket-text').classList.remove('display-none');
-    // document.getElementById('pay-div').classList.remove('display-none');
+    document.getElementById('dialog-container').classList.remove('display-none')
+    document.getElementById('empty-basket-text').classList.remove('display-none');
+   
     
 }
