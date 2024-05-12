@@ -74,7 +74,6 @@
                 </div>
             </div>
             <div class="seperator"></div>
-
             <span id="total-price">Total: 0.00 €</span>
             <button class="button" onclick="payment(), openDialog()">Bezahlen</button>
             <div id="empty-basket-text">
@@ -86,11 +85,12 @@
 
         <dialog id="dialog-container">
         </dialog>
-        <div class="mobile-payment-container" id="mobile-payment-container display-none">
+        <div class="mobile-payment-container" id="mobile-payment-container dispay-none">
             <div id="mobile-payment" onclick="payment()">
-                    <h2>Bezahlen</h2>
-                    <img class="delete-img" src="./icon/minus.png" alt="close" onclick="closeDialog()">
-                </div>    
+                <span>Bezahlen</span>
+                <img class="delete-img" src="./icon/circled-right.png" alt="close" onclick="closeDialog()">
+            </div>
+            
         </div>
     </main>
     <footer>

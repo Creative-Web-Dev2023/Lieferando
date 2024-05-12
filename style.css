@@ -322,19 +322,41 @@ b {
     background-color: #b7b9c5;
 }
 .mobile-payment-container{
-    background-color: rgb(221, 132, 69);
-    padding: 8px;
+    padding: 10px;
     cursor: pointer;
-    border-radius: 4px;
+    font-size: 19px;
+    font-weight: bold;
+    border-radius: 5px;
     margin: 10%;
-}
-.mobile-payment{
-    display: flex;
-}
+    position:fixed;
+    bottom: 0;
+    left:0;
+    right:0;
+    width: 200px;
+    height: 35px;
+    background-color: orange;
+    margin-bottom: 16px;
+    border: 1px solid rgb(82, 77, 77);
+ }
+ .mobile-payment-container:hover{
+    background-color: #b7b9c5;
+ }
 .delete-img{
-    height: 24px;
-    margin-left: 24px;
+    height: 21px;
+    margin-left: 8px;
+    background-color: #de970b;
+    border-radius: 100%;
+    cursor: pointer;  
 }
+.delete-img:hover{
+    transform: scale(0.9);
+    background-color: #b5bce1;
+}
+#mobile-payment{
+    display: flex;
+    justify-content: space-evenly;
+  
+ }
 /*Footer CSS*/
 footer{
     display: grid;
@@ -373,6 +395,9 @@ footer a:hover{
    }
    h2{
     font-size:16px;
+   }
+   .mobile-payment-container{
+    display: block;
    }
    
 }

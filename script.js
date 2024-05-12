@@ -62,8 +62,7 @@ let amountBasket = [];
 
 function init(){
   render();
-  changeLike();
-  generateDialogHtml();
+ renderBasket();
 }
 
 function render(){
@@ -101,7 +100,6 @@ function renderBasket() {
     for (let i = 0; i < shoppingBasket.length; i++) {
         basketContent.innerHTML += /*html*/`
             <div class="basket-item">
-
                 <span>${shoppingBasket[i]}</span>
                 <span>${priceBasket[i]}€</span>
                 <span>${amountBasket[i]}x</span>
@@ -124,8 +122,10 @@ function addFoodToBasket(i) {
         priceBasket.push(price);
         amountBasket.push(1);
         document.getElementById('empty-basket-text').style.display = 'none';
+    } else {
         amountBasket[index]++;
     }
+    saveArray();
     renderBasket();
 }
 
@@ -167,7 +167,7 @@ function changeLike(){
 }
 
 function saveArray(){
-    let menusAsText =JSON.stringify(menus);
+    let menusAsText =JSON.stringify('menus');
     localStorage.setItem('menus', menusAsText);
 }
 
@@ -184,7 +184,7 @@ function loadArray() {
     return /*html*/`
     <div class="dialog-content"> 
     <h3 class = "basket-title">Vielen Dank für Ihre Bestellung</h3>
-    <button class ="button" onclick="closeDialog(),payment()">Schließen</button>
+    <button class ="button" onclick="closeDialog()">Schließen</button>
     </div>
     `;	
  }
@@ -230,7 +230,6 @@ function payment (){
     document.getElementById('basket-title').classList.add('display-none');
     document.getElementById('dialog-container').classList.add('display-none');
     document.getElementById('empty-basket-text').classList.add('display-none');
-    document.getElementById('mobile-payment-container').classList.add('display-none');
    
 }
 
@@ -238,5 +237,5 @@ function removeClassList(){
     document.getElementById('basket-title').classList.remove('display-none');
     document.getElementById('dialog-container').classList.remove('display-none')
     document.getElementById('empty-basket-text').classList.remove('display-none');
-    document.getElementById('mobile-payment-container').classList.remove('display-none');
+ 
 }
