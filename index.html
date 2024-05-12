@@ -69,15 +69,21 @@
                     </div>
                 </div>
             </div>
-            <div id="basket-content"></div>
+            <div id="ticket-content">
+                <div id="basket-content">
+                </div>
+            </div>
+            <div class="seperator"></div>
+
+            <span id="total-price">Total: 0.00 €</span>
             
-            <div id="empty-basket-text display-none">
+            <div id="empty-basket-text" onclick="openDialog()">
                 <img src="./icon/shopping-bag.png" alt="bag">
                 <h2>Dein Warenkorb ist leer</h2>
                 <p>Füge bitte Gerichte aus der <br> Speisekarte hinzu und bestelle dein Essen.</p>
             </div>
         </div>
-        <div class="seperator"></div>
+        <!-- 
          <div class="total-section" id="total-section"> 
             <p>Gesamtpreis</p>
             <p class="currentPrice" id="total"></p>
@@ -94,7 +100,10 @@
                 <div class="thanks" id="thanks">
                 </div>
             </div>
-        </div>
+        </div> -->
+        <dialog id="dialog-container">
+            
+        </dialog>
     </main>
     <footer>
         <a href="#">Impressum</a>
