@@ -278,15 +278,22 @@ b {
     text-align: center;
     margin-top: 20px;
 }
-#basket-content{
+.basket-content{
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
-    width:70%;
+    width:100%;
     border-radius: 7px;
     background-color: rgba(0, 0, 0, 0.1);
 
+}
+.basket-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 .basket-order{
     display: flex;
@@ -324,9 +331,6 @@ b {
     color:#485edb;
 }
 
-#ticket-content {
-    flex: 1;
-}
 
 #empty-basket-text{
     margin-top: 70px;

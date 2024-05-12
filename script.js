@@ -94,25 +94,21 @@ function render(){
 function renderBasket() {
     let basketContent = document.getElementById('basket-content');
     let basketTotal = document.getElementById('total-price');
-
     let total = calculateCost()
-
     basketContent.innerHTML = "";
-
     basketTotal.innerHTML = /*html*/`
-        Total: ${total} €
-    `;
-
+        Total: ${total} € `;
     for (let i = 0; i < shoppingBasket.length; i++) {
         basketContent.innerHTML += /*html*/`
             <div class="basket-item">
+                
                 <span>${shoppingBasket[i]}</span>
                 <span>${priceBasket[i]}€</span>
                 <span>${amountBasket[i]}x</span>
             </div>
             <div class="shoppingbasket-div">
-            <img class="minusImg" src="./icon/minus.png" onclick="removeFoodFromBasket(${i})" width:15px;alt="Minus">
-           <img class="plusImg" src="./icon/plus.png" onclick="addFoodToBasket(${i})" alt="Plus">
+                <img class="minusImg" src="./icon/minus.png" onclick="removeFoodFromBasket(${i})" width:15px;alt="Minus">
+                <img class="plusImg" src="./icon/plus.png" onclick="addFoodToBasket(${i})" alt="Plus">
             </div>
         `;
     }
@@ -140,7 +136,6 @@ function removeFoodFromBasket(index) {
         renderBasket();
         return;
     }
-
     shoppingBasket.splice(index, 1); //ein Element aus dem Array entfernen
     priceBasket.splice(index, 1); //Preis entfernen
     amountBasket.splice(index, 1); // Menge entfernen
@@ -205,11 +200,9 @@ function loadArray() {
 
   function generateDialogHtml(){
     return /*html*/`
-    <div class="dialog-content" style="background-color: white; padding: 1.3rem;">
-           
+    <div class="dialog-content" style="background-color: white; padding: 1.3rem;"> 
     <h3 class = "basket-title">Vielen Dank für Ihre Bestellung</h3>
-
-    <button class ="button" onclick="pay(),addClassList(),removeClassList()">Schließen</button>
+    <button class ="button" onclick="payment(),addClassList(),removeClassList()">Schließen</button>
     </div>
     `;	
  }
@@ -217,9 +210,7 @@ function loadArray() {
 
   function openDialog(){
     let dialog = document.getElementById('dialog-container');
-
     dialog.innerHTML = generateDialogHtml();
-
     dialog.style.display = "flex"
   }
 
@@ -234,7 +225,6 @@ function calculateCost(){
 
 function payment (){
     if(shoppingBasket.length === 0){ //  wenn der Warenkorb leer ist
-        alert("Vielen Dank für Ihre Bestellung!");
         shoppingBasket.splice(0, shoppingBasket.length); // Array leeren
         priceBasket.splice(0, priceBasket.length); 
         amountBasket.splice(0, amountBasket.length);
