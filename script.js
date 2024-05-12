@@ -123,7 +123,8 @@ function addFoodToBasket(i) {
         shoppingBasket.push(menuName);
         priceBasket.push(price);
         amountBasket.push(1);
-    } else {
+        document.getElementById('empty-basket-text').style.display = 'none';
+
         amountBasket[index]++;
     }
     renderBasket();
@@ -180,13 +181,11 @@ function loadArray() {
   }
 
 
-
-
   function generateDialogHtml(){
     return /*html*/`
     <div class="dialog-content"> 
     <h3 class = "basket-title">Vielen Dank für Ihre Bestellung</h3>
-    <button class ="button" onclick="payment(),addClassList(),removeClassList()">Schließen</button>
+    <button class ="button" onclick="closeDialog(),payment()">Schließen</button>
     </div>
     `;	
  }
@@ -219,20 +218,16 @@ function payment (){
         amountBasket.splice(0, amountBasket.length);
     } else {
         return /*html*/`
-    <div class="dialog-content"> 
-    <h3 id="basket-title" class = "basket-title">Vielen Dank für Ihre Bestellung</h3>
-    <button class ="button" onclick="payment(), closeDialog(),addClassList(),removeClassList()">Schließen</button>
-    </div>
+         <div class="dialog-content"> 
+             <h3 id="basket-title" class = "basket-title">Vielen Dank für Ihre Bestellung</h3>
+             <button class ="button" onclick="closeDialog(),addClassList(),removeClassList()">Schließen</button>
+        </div>
     `;	
  };
     }
 
-    function closeDialog(){
-        let dialog = document.getElementById('dialog-container');
-        
-    }
 
-function addClassList(){
+ function addClassList(){
     document.getElementById('basket-title').classList.add('display-none');
     document.getElementById('dialog-container').classList.add('display-none');
     document.getElementById('empty-basket-text').classList.add('display-none');
@@ -243,6 +238,5 @@ function removeClassList(){
     document.getElementById('basket-title').classList.remove('display-none');
     document.getElementById('dialog-container').classList.remove('display-none')
     document.getElementById('empty-basket-text').classList.remove('display-none');
-   
-    
+ 
 }
