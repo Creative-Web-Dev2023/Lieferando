@@ -97,6 +97,7 @@ function renderBasket() {
     basketContent.innerHTML = "";
     basketTotal.innerHTML = /*html*/`
         Total: ${total} € `;
+    
     for (let i = 0; i < shoppingBasket.length; i++) {
         basketContent.innerHTML += /*html*/`
             <div class="basket-item">
@@ -201,6 +202,7 @@ function loadArray() {
     dialog.style.display = "none"; 
 }
 
+
 function calculateCost(){
     let sum = 0; //Summe auf 0 setzen
     for (let i = 0; i < priceBasket.length; i++) { // durch das Array iterieren
@@ -223,6 +225,7 @@ function payment (){
         </div>
     `;	
  };
+ 
     }
 
 
@@ -232,6 +235,7 @@ function payment (){
     document.getElementById('empty-basket-text').classList.add('display-none');
    
 }
+
 
 function removeClassList(){
     document.getElementById('basket-title').classList.remove('display-none');

@@ -290,6 +290,9 @@ b {
     margin-top: 70px;
     margin-bottom: 20px;
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    width:59%;
+    height:22%;
 }
 .seperator{
     background-color: #ffa500;
@@ -327,7 +330,7 @@ b {
     font-size: 19px;
     font-weight: bold;
     border-radius: 5px;
-    margin: 10%;
+    margin: 25%;
     position:fixed;
     bottom: 0;
     left:0;
@@ -338,9 +341,7 @@ b {
     margin-bottom: 16px;
     border: 1px solid rgb(82, 77, 77);
  }
- .mobile-payment-container:hover{
-    background-color: #b7b9c5;
- }
+
 .delete-img{
     height: 21px;
     margin-left: 8px;
