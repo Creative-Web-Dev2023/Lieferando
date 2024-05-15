@@ -61,7 +61,8 @@ let amountBasket = [];
 
 
 function init(){
-  render();
+ loadArray();
+ render();
  renderBasket();
 }
 
@@ -112,9 +113,29 @@ function renderBasket() {
             </div>
         `;
     }
-    basketTotal.innerHTML = generateEmptyShoppingBasketHTML(total);
 }
 }
+
+function generateEmptyShoppingBasketHTML(){
+    return /*html*/`	
+           <div id="empty-basket-text">
+                <img src="./icon/shopping-bag.png" alt="bag">
+                <h2>Dein Warenkorb ist leer</h2>
+                <p>Füge bitte Gerichte aus der <br> Speisekarte hinzu und bestelle dein Essen.</p>
+            </div>
+    `;
+}
+
+function generateDialogHtml(){
+    return /*html*/`
+    <div class="dialog-content"> 
+    <h3 class = "basket-title">Vielen Dank für Ihre Bestellung</h3>
+    <button class ="button" onclick="closeDialog()">Schließen</button>
+    </div>
+    `;	
+ }
+
+
 
 function addFoodToBasket(i) {
     let menu = menus[i];
@@ -125,11 +146,9 @@ function addFoodToBasket(i) {
         shoppingBasket.push(menuName);
         priceBasket.push(price);
         amountBasket.push(1);
-        document.getElementById('empty-basket-text').style.display = 'none';
     } else {
         amountBasket[index]++;
     }
-    saveArray();
     renderBasket();
 }
 
@@ -171,28 +190,20 @@ function changeLike(){
 }
 
 function saveArray(){
-    let menusAsText =JSON.stringify('menus');
-    localStorage.setItem('menus', menusAsText);
+    let menusAsText =JSON.stringify(menus);
+    localStorage.setItem(menus, menusAsText);
 }
 
 
 function loadArray() {
-    let menusAsText = localStorage.getItem('menus');
+    let menusAsText = localStorage.getItem(menus);
     if (menusAsText) {
         menus = JSON.parse(menusAsText);
     }
   }
 
 
-  function generateDialogHtml(){
-    return /*html*/`
-    <div class="dialog-content"> 
-    <h3 class = "basket-title">Vielen Dank für Ihre Bestellung</h3>
-    <button class ="button" onclick="closeDialog()">Schließen</button>
-    </div>
-    `;	
- }
-
+ 
 
   function openDialog(){
     let dialog = document.getElementById('dialog-container');
@@ -218,17 +229,24 @@ function generateDialogContent(){
     return /*html*/`
     <div class="dialog-content"> 
         <h3 id="basket-title" class = "basket-title">Vielen Dank für Ihre Bestellung</h3>
-        <button class ="button" onclick="closeDialog(),addClassList(),removeClassList()">Schließen</button>
+        <button class ="button" onclick="closeDialog()">Schließen</button>
    </div>
 `;	
 }
 
 function payment (){
-    if(shoppingBasket.length === 0){ //  wenn der Warenkorb leer ist
+    if(shoppingBasket.length <= 0){ //  wenn der Warenkorb leer ist
         alert('Ihr Warenkorb ist leer');
     } else {
+       openDialog();
         return generateDialogContent(); 
     }
+}
+function closePayment(){
+    shoppingBasket = [];
+    priceBasket = [];
+    amountBasket = [];
+    renderBasket();
 }
 
  function addClassList(){

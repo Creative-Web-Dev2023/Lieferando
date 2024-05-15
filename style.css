@@ -177,7 +177,7 @@ h3{
     padding:4px;
     border-radius: 100%;
     background-color:#e2e5f7;
-    height:20px;
+    height:23px;
 }
 .minusImg:hover{
     transform:scale(0.9);
@@ -187,7 +187,7 @@ h3{
     padding:4px;
     border-radius: 100%;
     background-color:#e2e5f7;
-    height:20px;
+    height:23px;
 }
 .plusImg:hover{
     transform:scale(0.9);
@@ -237,10 +237,6 @@ b {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
-    width:100%;
-    border-radius: 7px;
-    background-color: rgba(0, 0, 0, 0.1);
 
 }
 .basket-item{
@@ -293,6 +289,8 @@ b {
     background-color: rgba(0, 0, 0, 0.1);
     width:59%;
     height:22%;
+    border-radius: 10px;
+    border: 2px solid orange;
 }
 .seperator{
     background-color: #ffa500;
@@ -306,11 +304,13 @@ b {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    height: 10vh;
-    max-width: 300px;
+    height: 20vh;
+    width:32vw;
+    gap:30px;
+    max-width: 600px;
     background-color: white;
-    border: 1px solid rgb(82, 77, 77);
-    border-radius: 5px;
+    border: 4px solid orange;
+    border-radius: 12px;
 }
 .button{
     width: 150px;
@@ -402,6 +402,11 @@ footer a:hover{
    }
    
 }
+@media only screen and (max-width: 650px){
+    .dialog-content{
+        display: none;
+    
+}
 @media only screen and (max-width: 450px){
     h1{
         font-size:18px;
@@ -410,4 +415,5 @@ footer a:hover{
         font-size:12px;
         margin-left:8px;
     }
+}
 }
