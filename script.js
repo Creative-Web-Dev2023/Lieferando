@@ -92,12 +92,13 @@ function render(){
 
 function renderBasket() {
     let basketContent = document.getElementById('basket-content');
-    let basketTotal = document.getElementById('total-price');
-    let total = calculateCost()
-    basketContent.innerHTML = "";
-    basketTotal.innerHTML = /*html*/`
-        Total: ${total} € `;
+    let basketTotal = document.getElementById('basket-total');
+    let total = calculateCost();
+    basketContent.innerHTML = '';
     
+    if(shoppingBasket.length <=0){  // wenn der Warenkorb leer ist
+    basketContent.innerHTML = generateEmptyShoppingBasketHTML();
+    } else {
     for (let i = 0; i < shoppingBasket.length; i++) {
         basketContent.innerHTML += /*html*/`
             <div class="basket-item">
@@ -111,6 +112,8 @@ function renderBasket() {
             </div>
         `;
     }
+    basketTotal.innerHTML = generateEmptyShoppingBasketHTML(total);
+}
 }
 
 function addFoodToBasket(i) {
@@ -211,23 +214,22 @@ function calculateCost(){
     return sum.toFixed(2); // auf 2 Nachkommastellen runden
 }
 
+function generateDialogContent(){
+    return /*html*/`
+    <div class="dialog-content"> 
+        <h3 id="basket-title" class = "basket-title">Vielen Dank für Ihre Bestellung</h3>
+        <button class ="button" onclick="closeDialog(),addClassList(),removeClassList()">Schließen</button>
+   </div>
+`;	
+}
 
 function payment (){
     if(shoppingBasket.length === 0){ //  wenn der Warenkorb leer ist
-        shoppingBasket.splice(0, shoppingBasket.length); // Array leeren
-        priceBasket.splice(0, priceBasket.length); 
-        amountBasket.splice(0, amountBasket.length);
+        alert('Ihr Warenkorb ist leer');
     } else {
-        return /*html*/`
-         <div class="dialog-content"> 
-             <h3 id="basket-title" class = "basket-title">Vielen Dank für Ihre Bestellung</h3>
-             <button class ="button" onclick="closeDialog(),addClassList(),removeClassList()">Schließen</button>
-        </div>
-    `;	
- };
- 
+        return generateDialogContent(); 
     }
-
+}
 
  function addClassList(){
     document.getElementById('basket-title').classList.add('display-none');
