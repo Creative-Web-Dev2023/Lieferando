@@ -59,6 +59,8 @@ let shoppingBasket = [];
 let priceBasket = []; 
 let amountBasket = [];
 
+let total = 0;
+let numericTotal = parseFloat(total);
 
 function init(){
  loadArray();
@@ -93,6 +95,7 @@ function render(){
 function renderBasket() {
     let basketContent = document.getElementById('basket-content');
     let basketTotal = document.getElementById('total-price');
+    let basketTotalMobile = document.getElementById("mobile-payment");
     let total = calculateCost();
     basketContent.innerHTML = '';
     if(shoppingBasket.length <=0){  // wenn der Warenkorb leer ist
@@ -113,6 +116,7 @@ function renderBasket() {
     }
 }
 basketTotal.innerHTML = `Total: ${total}€`;
+basketTotalMobile.innerHTML = `Total: ${total}€`;
 }
 
 function generateEmptyShoppingBasketHTML(){
@@ -134,10 +138,6 @@ function generateDialogHtml(){
     `;	
  }
 
- function showMobileBasket(){
-    let mobilePaymentCost = document.getElementById('mobile-payment-container');
-    mobilePaymentCost.textContent = total.toFixed(2) + ' €';
-}
 
  
  function addFoodToBasket(i) {
@@ -233,7 +233,6 @@ function generateDialogContent(){
 }
 
 function payment (){
-    totalCost = calculateCost();
     if(shoppingBasket.length <= 0){ //  wenn der Warenkorb leer ist
         alert('Ihr Warenkorb ist leer');
     } else {
