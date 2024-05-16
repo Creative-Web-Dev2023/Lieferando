@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="basket-order-take-right" id="basket-take-order" onclick="selectTakeAway()">
-                    <img src="./icon/shopping-bag.png" alt="bags" width=20px" height=20px">
+                    <img src="./icon/shopping-bag.png" alt="bags" width="20px" height="20px">
                     <div class="basket-order-take-right-collect">
                         <span><b>Abholung</b></span>
                         <span>15 Min</span>
@@ -73,16 +73,15 @@
             </div>
             
             <div class="seperator"></div>
-            <button id="total-price" class="button" onclick="payment()">Total: 0.00 €</button>
-        </div>
+            <button id="total-price" class="button" onclick="payment()">
+                Total:0.00 € </button>
+         </div>
         <dialog id="dialog-container">
         </dialog>
         <div class="mobile-payment-container display-none" id="mobile-payment-container dispay-none">
-            <div id="mobile-payment" onclick="payment()">
-                <span>Bezahlen</span>
-                <img class="delete-img " src="./icon/circled-right.png" alt="close" onclick="closePayment()">
+            <div id="mobile-payment" onclick="showBasket()">
+                <img id="basket-icon" src="./icon/basket.png"><span id="mobile-payment-cost">0.00</span>€  
             </div>
-            
         </div>
     </main>
     <footer>

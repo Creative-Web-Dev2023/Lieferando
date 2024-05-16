@@ -59,7 +59,6 @@ let shoppingBasket = [];
 let priceBasket = []; 
 let amountBasket = [];
 
-
 function init(){
  loadArray();
  render();
@@ -90,10 +89,9 @@ function render(){
 }
 }
 
-
 function renderBasket() {
     let basketContent = document.getElementById('basket-content');
-    let basketTotal = document.getElementById('basket-total');
+     let basketTotal = document.getElementById('total-price');
     let total = calculateCost();
     basketContent.innerHTML = '';
     
@@ -114,6 +112,7 @@ function renderBasket() {
         `;
     }
 }
+basketTotal.innerHTML = `Total: ${total}€`;
 }
 
 function generateEmptyShoppingBasketHTML(){
@@ -135,9 +134,11 @@ function generateDialogHtml(){
     `;	
  }
 
+ function showBasket(){
+    let basketMobile= document.getElementById('mobile-payment');
+ }
 
-
-function addFoodToBasket(i) {
+     function addFoodToBasket(i) {
     let menu = menus[i];
     let menuName = menu.name;
     let price = menu.price;
@@ -179,7 +180,6 @@ function selectTakeAway(){
     shipment.style.backgroundColor='transparent';
 }
 
-
 function changeLike(){
     let likeBtn = document.getElementById('likebtn'); //Elem. aufrufen
     if (likeBtn.src.includes('love-circled.png')) { //wenn das Bild "love-circled.png" enthält dann true
@@ -194,16 +194,12 @@ function saveArray(){
     localStorage.setItem(menus, menusAsText);
 }
 
-
 function loadArray() {
     let menusAsText = localStorage.getItem(menus);
     if (menusAsText) {
         menus = JSON.parse(menusAsText);
     }
   }
-
-
- 
 
   function openDialog(){
     let dialog = document.getElementById('dialog-container');
@@ -241,12 +237,6 @@ function payment (){
        openDialog();
         return generateDialogContent(); 
     }
-}
-function closePayment(){
-    shoppingBasket = [];
-    priceBasket = [];
-    amountBasket = [];
-    renderBasket();
 }
 
  function addClassList(){

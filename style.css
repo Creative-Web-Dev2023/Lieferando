@@ -148,7 +148,9 @@ h3{
     flex-direction: column;
     align-items: center;
     text-align: center;  
+    margin-top:22px;
 }
+
 .dialog-bg{
     display: flex;
     justify-content: center;
@@ -342,17 +344,7 @@ b {
     border: 1px solid rgb(82, 77, 77);
  }
 
-.delete-img{
-    height: 21px;
-    margin-left: 8px;
-    background-color: #de970b;
-    border-radius: 100%;
-    cursor: pointer;  
-}
-.delete-img:hover{
-    transform: scale(0.9);
-    background-color: #b5bce1;
-}
+
 #mobile-payment{
     display: flex;
     justify-content: space-evenly;
@@ -399,6 +391,10 @@ footer a:hover{
    }
    .mobile-payment-container{
     display: block;
+   }
+   #basket-icon{
+    width:30px;
+    margin-top:-8px;
    }
    
 }
