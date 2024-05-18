@@ -4,8 +4,12 @@
     scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: #ffa500 #ffffff;
+  
 }
 
+body{
+    font-family:'Lato', sans-serif;
+}
 /*Header-CSS*/
 header{
     display: flex;
@@ -32,8 +36,9 @@ h1{
     align-items: center;
 }
 .flag, .icon-header{
-    width: 25px;
-    height:25px;
+    width: 40px;
+    height:40px;
+    padding-right:10px;
 }
 /*Main CSS*/
 main{
@@ -86,6 +91,7 @@ h2:hover{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 8px;
 }
 .rating{
     display: flex;
@@ -341,7 +347,7 @@ b {
     height: 35px;
     background-color: orange;
     margin-bottom: 16px;
-    border: 1px solid rgb(82, 77, 77);
+    
  }
 
 
