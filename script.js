@@ -120,11 +120,15 @@ function basketContentTemplate(i) {
      </div>
      <div class="shoppingbasket-div">
         <img class="minusImg" src="./icon/minus.png" onclick="removeFoodFromBasket(${i})" width:15px;alt="Minus">
-        <img class="plusImg" src="./icon/plus.png" onclick="addFoodToBasket(${i})" alt="Plus">
+        <img class="plusImg" src="./icon/plus.png" onclick="morePizza(${i})" alt="Plus">
     </div>
 `;
 }
 
+function morePizza(i) {
+  amountBasket[i]++;
+  renderBasket();
+}
 function generateEmptyShoppingBasketHTML() {
   return /*html*/ `	
      <div id="empty-basket-text">
