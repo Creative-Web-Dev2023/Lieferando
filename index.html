@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,8 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="./img/cooking-chef.png">
-
 </head>
+
 <body onload="init()">
     <header>
         <nav class="food-man">
@@ -46,7 +47,6 @@
             <h3 class="menuline">Belibte Gerichte</h3>
             <div id="content">
         </section>
-
         <div class="basket">
             <span class="basket-headline">
                 <h2>Warenkorb</h2>
@@ -71,16 +71,16 @@
                 <div id="basket-content" class="basket-content">
                 </div>
             </div>
-            
+
             <div class="seperator"></div>
             <button id="total-price" class="button" onclick="payment()">
                 Total:0.00 € </button>
-         </div>
+        </div>
         <dialog id="dialog-container">
         </dialog>
         <div class="mobile-payment-container display-none" id="mobile-payment-container display-none">
             <div id="mobile-payment" onclick="payment()">
-                <img id="basket-icon" src="./icon/basket.png"><span id="mobile-payment-cost">0.00</span>€  
+                <img id="basket-icon" src="./icon/basket.png"><span id="mobile-payment-cost">0.00</span>€
             </div>
         </div>
     </main>
