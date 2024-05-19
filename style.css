@@ -407,7 +407,11 @@ footer a:hover{
 @media only screen and (max-width: 650px){
     .dialog-content{
         display: none;
-    
+    }
+    .rating-numbers{
+            font-size: 15px;
+        }
+  
 }
 @media only screen and (max-width: 450px){
     h1{
@@ -417,5 +421,56 @@ footer a:hover{
         font-size:12px;
         margin-left:8px;
     }
+    .rating-numbers{
+        font-size: 13px;
+    }
+    .stars{
+        width:70px;
+        margin-left: 6px;
+    }
+    .order-value{
+        margin-left: 5px;
+    }
+
+    footer{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 320px){
+ h1 {
+    font-size: 16px;	
+  }
+ h2{
+    font-size: 10px;
+    padding-left: 10px;	
+ }
+ .icon-food-men{
+    width: 30px;
+    height:30px; 
+}
+.flag, .icon-header{
+    width: 20px;
+    height:20px;
+    padding-right:0px;
+}
+.home-img{
+    height: 200px;
+}
+.description-div {
+    margin-left:5%;
+}
+
+.rating-numbers{
+    font-size: 10px;
+}
+.order-value{
+    margin-left: 7px;
+}
+.mobile-payment-container{
+    width: 150px;
+    height: 30px;
+    font-size: 16px;
+    margin: 20%;
 }
 }

@@ -1,7 +1,7 @@
 let menus = [
   {
     name: "Pizza Margherita",
-    description: "mit Mozarella,Tomatensoße und Basilikum",
+    description: "mit Mozarella,Tomaten und Basilikum",
     plusImage: "./icon/plus.png",
     minusImage: "./icon/minus.png",
     price: 8.99,
@@ -146,6 +146,7 @@ function generateDialogHtml() {
          <button class ="button" onclick="closeDialog()">Schließen</button>
     </div>
     `;
+    
 }
 
 function addFoodToBasket(i) {
@@ -238,14 +239,22 @@ function generateDialogContent() {
      </div>
 `;
 }
-
 function payment() {
   if (shoppingBasket.length <= 0) {//  wenn der Warenkorb leer ist
     alert("Ihr Warenkorb ist leer");
   } else {
     openDialog();
+    clearBasket(); // Warenkorb leeren
+    renderBasket(); // Warenkorb aktualisieren
     return generateDialogContent();
   }
+}
+
+function clearBasket() {
+  shoppingBasket = [];
+  priceBasket = [];
+  amountBasket = [];
+  total = 0;
 }
 
 function addClassList() {
