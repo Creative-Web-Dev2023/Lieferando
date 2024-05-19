@@ -97,7 +97,7 @@ function contentTemplate(i, menu) {
 function renderBasket() {
   let basketContent = document.getElementById("basket-content");
   let basketTotal = document.getElementById("total-price");
-  let basketTotalMobile = document.getElementById("mobile-payment");
+  let basketTotalMobile = document.getElementById("mobile-payment-cost");
   let total = calculateCost();
   basketContent.innerHTML = "";
   if (shoppingBasket.length <= 0) { // wenn der Warenkorb leer ist
