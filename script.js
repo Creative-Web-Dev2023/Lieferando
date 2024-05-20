@@ -94,7 +94,7 @@ function contentTemplate(i, menu) {
      </div>`;
 }
 
-function renderBasket() {
+ function renderBasket() {
   let basketContent = document.getElementById("basket-content");
   let basketTotal = document.getElementById("total-price");
   let basketTotalMobile = document.getElementById("mobile-payment-cost");
@@ -109,7 +109,7 @@ function renderBasket() {
   }
   basketTotal.innerHTML = `Total: ${total}€`;
   basketTotalMobile.innerHTML = `Total: ${total}€`;
-}
+ }
 
 function basketContentTemplate(i) {
   return /*html*/ `
@@ -191,6 +191,12 @@ function selectTakeAway() {
   shipment.style.backgroundColor = "transparent";
 }
 
+function closeButton() {
+  document.getElementById('basket').classList.add('display-none');
+  document.getElementById('mobile-payment-container').classList.add('display-none');
+  document.getElementById('menu-section').classList.add('display-block');
+}
+
 function changeLike() {
   let likeBtn = document.getElementById("likebtn"); //Elem. aufrufen
   if (likeBtn.src.includes("love-circled.png")) { //wenn das Bild "love-circled.png" enthält dann true
@@ -206,7 +212,7 @@ function saveArray() {
 }
 
 function loadArray() {
-  let menusAsText = localStorage.getItem(menus);
+  let menusAsText = localStorage.getItem('menus');
   if (menusAsText) {
     menus = JSON.parse(menusAsText);
   }
@@ -268,3 +274,4 @@ function removeClassList() {
   document.getElementById("dialog-container").classList.remove("display-none");
   document.getElementById("empty-basket-text").classList.remove("display-none");
 }
+
