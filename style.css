@@ -147,6 +147,9 @@
   .display-none {
     display: none;
   }
+  .display-block {
+    display: block;
+  }
   .basket-title {
     display: flex;
     flex-direction: column;

@@ -191,11 +191,16 @@ function selectTakeAway() {
   shipment.style.backgroundColor = "transparent";
 }
 
-function closeButton() {
-  document.getElementById('basket').classList.add('display-none');
-  document.getElementById('mobile-payment-container').classList.add('display-none');
-  document.getElementById('menu-section').classList.add('display-block');
+
+  function closeButton() {
+    document.getElementById('basket-content').style.display = 'none';
+    document.getElementById('main').style.display = 'block';
+    shoppingBasket.length = 0;
+    priceBasket.length = 0;
+    amountBasket.length = 0;
+    renderBasket();
 }
+
 
 function changeLike() {
   let likeBtn = document.getElementById("likebtn"); //Elem. aufrufen
