@@ -108,7 +108,7 @@ function contentTemplate(i, menu) {
     }
   }
   basketTotal.innerHTML = `Total: ${total}€`;
-  basketTotalMobile.innerHTML = `Total: ${total}€`;
+ 
  }
 
 function basketContentTemplate(i) {
@@ -274,4 +274,3 @@ function removeClassList() {
   document.getElementById("dialog-container").classList.remove("display-none");
   document.getElementById("empty-basket-text").classList.remove("display-none");
 }
-
