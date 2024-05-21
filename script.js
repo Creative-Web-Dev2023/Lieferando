@@ -108,7 +108,7 @@ function contentTemplate(i, menu) {
     }
   }
   basketTotal.innerHTML = `Total: ${total}€`;
- 
+  basketTotalMobile.innerHTML = `Total: ${total}€`;
  }
 
 function basketContentTemplate(i) {
@@ -193,11 +193,7 @@ function selectTakeAway() {
 
 
   function closeButton() {
-    document.getElementById('basket-content').style.display = 'none';
-    document.getElementById('main').style.display = 'block';
-    shoppingBasket.length = 0;
-    priceBasket.length = 0;
-    amountBasket.length = 0;
+    document.getElementById('basket-content').classList.add = 'display-none';
     renderBasket();
 }
 
