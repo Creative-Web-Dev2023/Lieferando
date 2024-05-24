@@ -192,7 +192,7 @@ function selectTakeAway() {
 }
 
 
-  function closeButton() {
+function closeButton() {
     document.getElementById('basket-content').classList.add = 'display-none';
     renderBasket();
 }
