@@ -109,6 +109,7 @@ function contentTemplate(i, menu) {
   }
   basketTotal.innerHTML = `Total: ${total}€`;
   basketTotalMobile.innerHTML = `Total: ${total}€`;
+  changeBasketCounter();
  }
 
 function basketContentTemplate(i) {
@@ -192,11 +193,22 @@ function selectTakeAway() {
 }
 
 
-function closeButton() {
-    document.getElementById('basket-content').classList.add = 'display-none';
-    renderBasket();
-}
 
+function closeButton() {
+  const basketMain = document.getElementById('basketMain')
+  basketMain.style.display = 'none';
+  const mobilePayment = document.getElementById('mobile-payment-container')
+  mobilePayment.style.display = 'flex';
+  renderBasket();
+}
+function openButton(){
+const basketMain = document.getElementById('basketMain')
+const mobilePayment = document.getElementById('mobile-payment-container')
+mobilePayment.style.display = 'none';
+
+basketMain.style.display = 'flex';
+renderBasket();
+}
 
 function changeLike() {
   let likeBtn = document.getElementById("likebtn"); //Elem. aufrufen
@@ -274,4 +286,13 @@ function removeClassList() {
   document.getElementById("basket-title").classList.remove("display-none");
   document.getElementById("dialog-container").classList.remove("display-none");
   document.getElementById("empty-basket-text").classList.remove("display-none");
+}
+function changeBasketCounter(){
+  const basketCounter = document.getElementById('basketCounter')
+  let sumAmountBasket = 0;
+  for (let i = 0; i < amountBasket.length; i++) {
+    const pizzaAmount = amountBasket[i];
+    sumAmountBasket += pizzaAmount;
+  }
+  basketCounter.innerHTML = sumAmountBasket;
 }

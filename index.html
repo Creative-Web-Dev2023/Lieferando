@@ -48,7 +48,7 @@
             <h3 class="menuline">Belibte Gerichte</h3>
             <div id="content">
         </section>
-        <div class="basket">
+        <div class="basket" id="basketMain">
 
             <span class="basket-headline">
                 <h2>Warenkorb</h2>
@@ -68,6 +68,7 @@
                         <span>15 Min</span>
                     </div>
                 </div>
+                <img onclick="closeButton()" id="close-button" class="back-to-menu" src="./icon/x-button.png" alt="Close">
             </div>
             <div id="ticket-content">
                 <div id="basket-content" class="basket-content">
@@ -79,12 +80,14 @@
         <dialog id="dialog-container">
         </dialog>
         <div class="mobile-payment-container" id="mobile-payment-container">
+            <div id="basketCounter" class="basketCounter">3</div>
             <div id="mobile-payment" onclick="payment()">
+                <div class="basket-icon-wrapper">
                 <img id="basket-icon" class="basket_icon_img" src="./icon/basket.png">
-                <span id="mobile-payment-cost" class="mobile_payment_cost">0.00</span>
+                <span id="mobile-payment-cost" class="mobile_payment_cost"> Total:0.00</span>
             </div>
         </div>
-        <img onclick="closeButton()" id="close-button" class="back-to-menu" src="./icon/x-button.png" alt="Close">
+       
     </main>
     <footer>
         <a href="#">Impressum</a>

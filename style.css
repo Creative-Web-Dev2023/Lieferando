@@ -223,7 +223,7 @@ b {
   object-fit: cover;
   padding: 7px;
 }
-.back-to-menu{
+.back-to-menu {
   display: none;
   bottom: 20px;
   right: 20px;
@@ -341,25 +341,49 @@ b {
 .basket_icon_img {
   width: 40px;
   height: 40px;
-
 }
 .mobile-payment-container {
   position: fixed;
   bottom: 40px;
   width: 70%;
-  height:5%;
+  height: 5%;
   background-color: rgb(255, 166, 0);
   cursor: pointer;
   border-radius: 100px;
-  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.mobile_payment_cost{
-  padding:10px;
+.mobile_payment_cost {
+  padding: 10px;
   font-size: 22px;
-  
+}
+#mobile-payment {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.basket-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+#basket-icon {
+  width: 30px;
+  height:30px;
+}
+#mobile-payment-cost {
+  margin-left: 10px; /* Anpassen nach Bedarf */
+}
+.basketCounter {
+  text-align: center;
+  color: white;
+  background-color: black;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  top:- 10px;
+  right:-10px;
 }
 /*Footer CSS*/
 footer {
@@ -407,11 +431,7 @@ footer a:hover {
   h2 {
     font-size: 16px;
   }
-  .mobile-payment-container {
-    display: none;
 
-  }
-  
   #empty-basket-text {
     display: flex;
     justify-content: center;
@@ -424,12 +444,12 @@ footer a:hover {
   }
 }
 @media only screen and (max-width: 768px) {
-  .back-to-menu{
+  .back-to-menu {
     display: block;
     position: fixed;
-    top:0;
+    top: 0;
     cursor: pointer;
-    width:75px;
+    width: 75px;
   }
 }
 
@@ -462,14 +482,24 @@ footer a:hover {
     margin-left: 6px;
   }
   .order-value {
-    margin-left: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 60px;
+    margin-top: 5px;
   }
 
   footer {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
+@media only screen and (max-width: 400px) {
+  .mobile-payment-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 @media only screen and (max-width: 300px) {
   h1 {
     font-size: 16px;
@@ -501,4 +531,5 @@ footer a:hover {
   .order-value {
     margin-left: 7px;
   }
+}
 }
