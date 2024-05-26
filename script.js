@@ -192,8 +192,6 @@ function selectTakeAway() {
   shipment.style.backgroundColor = "transparent";
 }
 
-
-
  function closeButton() {
   const basketMain = document.getElementById('basketMain')
   basketMain.style.display = 'none';
@@ -201,16 +199,14 @@ function selectTakeAway() {
   mobilePayment.style.display = 'flex';
   renderBasket();
 }
+
 function openButton(){
 const basketMain = document.getElementById('basketMain')
 const mobilePayment = document.getElementById('mobile-payment-container')
 mobilePayment.style.display = 'none';
-
 basketMain.style.display = 'flex';
 renderBasket();
 }
-
-
 
 function changeLike() {
   let likeBtn = document.getElementById("likebtn"); //Elem. aufrufen
@@ -260,6 +256,7 @@ function generateDialogContent() {
      </div>
 `;
 }
+
 function payment() {
   if (shoppingBasket.length <= 0) {//  wenn der Warenkorb leer ist
     // alert("Ihr Warenkorb ist leer");
@@ -267,6 +264,7 @@ function payment() {
     openDialog();
     clearBasket(); // Warenkorb leeren
     renderBasket(); // Warenkorb aktualisieren
+    closeButton();
     return generateDialogContent();
   }
 }
@@ -289,6 +287,7 @@ function removeClassList() {
   document.getElementById("dialog-container").classList.remove("display-none");
   document.getElementById("empty-basket-text").classList.remove("display-none");
 }
+
 function changeBasketCounter(){
   const basketCounter = document.getElementById('basketCounter')
   let sumAmountBasket = 0;

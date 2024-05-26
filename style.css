@@ -337,12 +337,14 @@ b {
 .mobile-payment-container {
   position: fixed;
   bottom: 40px;
-  width: 70%;
+  left: 5%;
+  right: 5%;
+  width: 90%;
   height: 5%;
   background-color: rgb(255, 166, 0);
   cursor: pointer;
   border-radius: 100px;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -396,6 +398,11 @@ footer a:hover {
   color: #e2e5f7;
 }
 /*Responsive Part*/
+@media only screen and (max-width: 1700px){
+  .mobile-payment-container {
+   width: 59%;
+  }
+}
 @media only screen and (max-width: 900px) {
   #empty-basket-text {
     height: 30%;
@@ -406,6 +413,7 @@ footer a:hover {
     left: 0;
     right: 0;
     width: unset;
+    display: none;
   }
   section {
     width: 100%;
@@ -434,7 +442,12 @@ footer a:hover {
   .shoppingbasket-div {
     margin-bottom: 5px;
   }
+  .mobile-payment-container{
+    display: flex;
+    width:80%;
+  }
 }
+
 @media only screen and (max-width: 768px) {
   .back-to-menu {
     display: block;
@@ -443,11 +456,14 @@ footer a:hover {
     cursor: pointer;
     width: 75px;
   }
+  
 }
 
 @media only screen and (max-width: 650px) {
-  .dialog-content {
-    display: none;
+  
+  .dialog-content { 
+    width: 80vw;
+    height: 25vh;
   }
   .rating-numbers {
     font-size: 15px;
@@ -486,12 +502,7 @@ footer a:hover {
   }
 }
 @media only screen and (max-width: 400px) {
-  .mobile-payment-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+   
 @media only screen and (max-width: 300px) {
   h1 {
     font-size: 16px;
