@@ -194,7 +194,7 @@ function selectTakeAway() {
 
 
 
-function closeButton() {
+ function closeButton() {
   const basketMain = document.getElementById('basketMain')
   basketMain.style.display = 'none';
   const mobilePayment = document.getElementById('mobile-payment-container')
@@ -209,6 +209,8 @@ mobilePayment.style.display = 'none';
 basketMain.style.display = 'flex';
 renderBasket();
 }
+
+
 
 function changeLike() {
   let likeBtn = document.getElementById("likebtn"); //Elem. aufrufen
