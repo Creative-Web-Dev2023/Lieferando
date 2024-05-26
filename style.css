@@ -340,7 +340,7 @@ b {
   width: 70%;
   height: 5%;
   background-color: rgb(255, 166, 0);
-
+  cursor: pointer;
   border-radius: 100px;
   display: flex;
   justify-content: center;
@@ -349,7 +349,6 @@ b {
 .mobile_payment_cost {
   padding: 10px;
   font-size: 22px;
- 
 }
 #mobile-payment {
   display: flex;
@@ -360,12 +359,10 @@ b {
   position: relative;
   display: flex;
   align-items: center;
-  cursor: pointer;
 }
 #basket-icon {
   width: 30px;
   height:30px;
-  cursor: pointer;
 }
 #mobile-payment-cost {
   margin-left: 10px; /* Anpassen nach Bedarf */
@@ -490,7 +487,7 @@ footer a:hover {
 }
 @media only screen and (max-width: 400px) {
   .mobile-payment-container {
-    width: 90%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
