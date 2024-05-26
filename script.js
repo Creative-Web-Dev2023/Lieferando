@@ -260,7 +260,7 @@ function generateDialogContent() {
 }
 function payment() {
   if (shoppingBasket.length <= 0) {//  wenn der Warenkorb leer ist
-    alert("Ihr Warenkorb ist leer");
+    // alert("Ihr Warenkorb ist leer");
   } else {
     openDialog();
     clearBasket(); // Warenkorb leeren

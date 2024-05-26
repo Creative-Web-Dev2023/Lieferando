@@ -179,27 +179,19 @@ h3 {
   justify-content: space-between;
   align-items: center;
 }
-.minusImg {
-  padding: 4px;
-  border-radius: 100%;
-  background-color: #e2e5f7;
-  height: 23px;
-}
-.minusImg:hover {
-  transform: scale(0.9);
-  background-color: #848aae;
-}
-.plusImg {
+.plusImg ,.minusImg {
   padding: 4px;
   border-radius: 100%;
   background-color: #e2e5f7;
   height: 23px;
   cursor: pointer;
 }
-.plusImg:hover {
+.minusImg:hover,.plusImg:hover  {
   transform: scale(0.9);
   background-color: #848aae;
 }
+
+
 .dishes-description-img-div {
   margin-top: 16px;
   display: flex;
@@ -348,7 +340,7 @@ b {
   width: 70%;
   height: 5%;
   background-color: rgb(255, 166, 0);
-  cursor: pointer;
+
   border-radius: 100px;
   display: flex;
   justify-content: center;
@@ -357,6 +349,7 @@ b {
 .mobile_payment_cost {
   padding: 10px;
   font-size: 22px;
+ 
 }
 #mobile-payment {
   display: flex;
@@ -367,10 +360,12 @@ b {
   position: relative;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 #basket-icon {
   width: 30px;
   height:30px;
+  cursor: pointer;
 }
 #mobile-payment-cost {
   margin-left: 10px; /* Anpassen nach Bedarf */
@@ -495,7 +490,7 @@ footer a:hover {
 }
 @media only screen and (max-width: 400px) {
   .mobile-payment-container {
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
