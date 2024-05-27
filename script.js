@@ -100,8 +100,7 @@ function renderBasket() {
   let basketTotalMobile = document.getElementById("mobile-payment-cost");
   let total = calculateCost();
   basketContent.innerHTML = "";
-  if (shoppingBasket.length <= 0) {
-    // wenn der Warenkorb leer ist
+  if (shoppingBasket.length <= 0) {// wenn der Warenkorb leer ist
     basketContent.innerHTML = generateEmptyShoppingBasketHTML();
   } else {
     for (let i = 0; i < shoppingBasket.length; i++) {
@@ -196,7 +195,6 @@ function selectTakeAway() {
 
 function closeButton() {
   const basketMain = document.getElementById("basketMain");
-  basketMain.style.display = "none";
   const mobilePayment = document.getElementById("mobile-payment-container");
   mobilePayment.style.display = "flex";
   renderBasket();
