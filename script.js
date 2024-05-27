@@ -69,7 +69,7 @@ function init() {
 function render() {
   let content = document.getElementById("content");
   content.innerHTML = ""; //Inhalt leeren
-  for (let i = 0; i < menus.length; i++) {// durch Array iterieren
+  for (let i = 0; i < menus.length; i++) { // durch Array iterieren
     const menu = menus[i];
     content.innerHTML += contentTemplate(i, menu); //Inhalt hinzufügen
   }
@@ -85,22 +85,23 @@ function contentTemplate(i, menu) {
         <div class="dishes-description-img-div">
           <div>
               <p class="dishes-description">${menu.description}</p>
-              <p class="dishes-price"><b>${menu.price.toFixed(2)} €</b></p>
+              <p class="dishes-price"><b>${menu.price.toFixed(2).replace(".", ",")}€</b></p>
          </div>
          <div>
-             <img class="dishes-img" src="${menu.dishesImage}" alt="${ menu.name}">
+             <img class="dishes-img" src="${menu.dishesImage}" alt="${menu.name}">
           </div>
         </div>
      </div>`;
 }
 
- function renderBasket() {
+function renderBasket() {
   let basketContent = document.getElementById("basket-content");
   let basketTotal = document.getElementById("total-price");
   let basketTotalMobile = document.getElementById("mobile-payment-cost");
   let total = calculateCost();
   basketContent.innerHTML = "";
-  if (shoppingBasket.length <= 0) { // wenn der Warenkorb leer ist
+  if (shoppingBasket.length <= 0) {
+    // wenn der Warenkorb leer ist
     basketContent.innerHTML = generateEmptyShoppingBasketHTML();
   } else {
     for (let i = 0; i < shoppingBasket.length; i++) {
@@ -110,13 +111,14 @@ function contentTemplate(i, menu) {
   basketTotal.innerHTML = `Total: ${total}€`;
   basketTotalMobile.innerHTML = `Total: ${total}€`;
   changeBasketCounter();
- }
+}
 
 function basketContentTemplate(i) {
+  let formattedPrice = priceBasket[i].toString().replace('.', ',');  //alle Punkte durch , ersetzen
   return /*html*/ `
       <div class="basket-item">
         <span>${shoppingBasket[i]}</span>
-        <span>${priceBasket[i]}€</span>
+        <span>${formattedPrice}€</span>
         <span>${amountBasket[i]}x</span>
      </div>
      <div class="shoppingbasket-div">
@@ -130,6 +132,7 @@ function morePizza(i) {
   amountBasket[i]++;
   renderBasket();
 }
+
 function generateEmptyShoppingBasketHTML() {
   return /*html*/ `	
      <div id="empty-basket-text">
@@ -147,7 +150,6 @@ function generateDialogHtml() {
          <button class ="button" onclick="closeDialog()">Schließen</button>
     </div>
     `;
-    
 }
 
 function addFoodToBasket(i) {
@@ -167,7 +169,7 @@ function addFoodToBasket(i) {
 
 function removeFoodFromBasket(index) {
   const currentQuantity = amountBasket[index]; //definiert die aktuelle Menge
-  if (currentQuantity > 1) { //falls mehr als 1
+  if (currentQuantity > 1) {//falls mehr als 1
     amountBasket[index]--; //Menge reduzieren
     renderBasket();
     return;
@@ -192,25 +194,25 @@ function selectTakeAway() {
   shipment.style.backgroundColor = "transparent";
 }
 
- function closeButton() {
-  const basketMain = document.getElementById('basketMain')
-  basketMain.style.display = 'none';
-  const mobilePayment = document.getElementById('mobile-payment-container')
-  mobilePayment.style.display = 'flex';
+function closeButton() {
+  const basketMain = document.getElementById("basketMain");
+  basketMain.style.display = "none";
+  const mobilePayment = document.getElementById("mobile-payment-container");
+  mobilePayment.style.display = "flex";
   renderBasket();
 }
 
-function openButton(){
-const basketMain = document.getElementById('basketMain')
-const mobilePayment = document.getElementById('mobile-payment-container')
-mobilePayment.style.display = 'none';
-basketMain.style.display = 'flex';
-renderBasket();
+function openButton() {
+  const basketMain = document.getElementById("basketMain");
+  const mobilePayment = document.getElementById("mobile-payment-container");
+  mobilePayment.style.display = "none";
+  basketMain.style.display = "flex";
+  renderBasket();
 }
 
 function changeLike() {
   let likeBtn = document.getElementById("likebtn"); //Elem. aufrufen
-  if (likeBtn.src.includes("love-circled.png")) { //wenn das Bild "love-circled.png" enthält dann true
+  if (likeBtn.src.includes("love-circled.png")) {//wenn das Bild "love-circled.png" enthält dann true
     likeBtn.src = "./icon/heart-suit.png"; //
   } else {
     likeBtn.src = "./icon/love-circled.png";
@@ -223,7 +225,7 @@ function saveArray() {
 }
 
 function loadArray() {
-  let menusAsText = localStorage.getItem('menus');
+  let menusAsText = localStorage.getItem("menus");
   if (menusAsText) {
     menus = JSON.parse(menusAsText);
   }
@@ -245,7 +247,8 @@ function calculateCost() {
   for (let i = 0; i < priceBasket.length; i++) {// durch das Array iterieren
     sum += priceBasket[i] * amountBasket[i]; // Preis * Menge und zur Summe addiert
   }
-  return sum.toFixed(2); // auf 2 Nachkommastellen runden
+  let formattedSum = sum.toFixed(2).toString().replace('.', ','); // Summe . mit , ersetzen
+  return formattedSum; // Formatierte Summe zurückgeben
 }
 
 function generateDialogContent() {
@@ -259,7 +262,7 @@ function generateDialogContent() {
 
 function payment() {
   if (shoppingBasket.length <= 0) {//  wenn der Warenkorb leer ist
-    // alert("Ihr Warenkorb ist leer");
+    
   } else {
     openDialog();
     clearBasket(); // Warenkorb leeren
@@ -288,8 +291,8 @@ function removeClassList() {
   document.getElementById("empty-basket-text").classList.remove("display-none");
 }
 
-function changeBasketCounter(){
-  const basketCounter = document.getElementById('basketCounter')
+function changeBasketCounter() {
+  const basketCounter = document.getElementById("basketCounter");
   let sumAmountBasket = 0;
   for (let i = 0; i < amountBasket.length; i++) {
     const pizzaAmount = amountBasket[i];

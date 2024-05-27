@@ -398,11 +398,7 @@ footer a:hover {
   color: #e2e5f7;
 }
 /*Responsive Part*/
-@media only screen and (max-width: 1700px){
-  .mobile-payment-container {
-   width: 59%;
-  }
-}
+
 @media only screen and (max-width: 900px) {
   #empty-basket-text {
     height: 30%;
@@ -444,7 +440,13 @@ footer a:hover {
   }
   .mobile-payment-container{
     display: flex;
-    width:80%;
+  }
+  .back-to-menu {
+    display: block;
+    position: fixed;
+    top: 0;
+    cursor: pointer;
+    width: 75px;
   }
 }
 
