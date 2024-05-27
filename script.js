@@ -113,18 +113,21 @@ function renderBasket() {
 }
 
 function basketContentTemplate(i) {
-  let formattedPrice = priceBasket[i].toString().replace('.', ',');  //alle Punkte durch , ersetzen
+  let price = priceBasket[i];
+  let quantity = amountBasket[i];
+  let totalItemPrice = (price * quantity).toFixed(2).toString().replace('.', ','); // Gesamtpreis des Artikels formatieren
+  let formattedPrice = price.toFixed(2).toString().replace('.', ',');  // Einzelpreis formatieren
+
   return /*html*/ `
-      <div class="basket-item">
-        <span>${shoppingBasket[i]}</span>
-        <span>${formattedPrice}€</span>
-        <span>${amountBasket[i]}x</span>
-     </div>
-     <div class="shoppingbasket-div">
-        <img class="minusImg" src="./icon/minus.png" onclick="removeFoodFromBasket(${i})" width:15px;alt="Minus">
-        <img class="plusImg" src="./icon/plus.png" onclick="morePizza(${i})" alt="Plus">
+    <div class="basket-item">
+      <span>${shoppingBasket[i]}</span>
+      <span>${quantity} x ${formattedPrice}€ = ${totalItemPrice}€</span>
     </div>
-`;
+    <div class="shoppingbasket-div">
+      <img class="minusImg" src="./icon/minus.png" onclick="removeFoodFromBasket(${i})" alt="Minus">
+      <img class="plusImg" src="./icon/plus.png" onclick="morePizza(${i})" alt="Plus">
+    </div>
+  `;
 }
 
 function morePizza(i) {
@@ -196,6 +199,7 @@ function selectTakeAway() {
 function closeButton() {
   const basketMain = document.getElementById("basketMain");
   const mobilePayment = document.getElementById("mobile-payment-container");
+  basketMain.style.display = "none";
   mobilePayment.style.display = "flex";
   renderBasket();
 }
