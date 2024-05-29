@@ -438,9 +438,7 @@ footer a:hover {
   .shoppingbasket-div {
     margin-bottom: 5px;
   }
-  .mobile-payment-container{
-    display: flex;
-  }
+  
   .back-to-menu {
     display: block;
     position: fixed;
@@ -458,7 +456,9 @@ footer a:hover {
     cursor: pointer;
     width: 75px;
   }
-  
+  .mobile-payment-container{
+    display: flex;
+  }
 }
 
 @media only screen and (max-width: 650px) {

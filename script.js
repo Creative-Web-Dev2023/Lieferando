@@ -136,6 +136,7 @@ function morePizza(i) {
 }
 
 function generateEmptyShoppingBasketHTML() {
+  
   return /*html*/ `	
      <div id="empty-basket-text">
         <img src="./icon/shopping-bag.png" alt="bag">
